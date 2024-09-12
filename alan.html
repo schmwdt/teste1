@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botão Mágico</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        #magicButton {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 24px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="magicButton">Clique aqui!</button>
+    <div id="message"></div>
+
+    <script>
+        let clickCount = 0;
+
+        document.getElementById("magicButton").addEventListener("click", function() {
+            clickCount++;
+
+            if (clickCount === 1) {
+                // Mover o botão para uma posição aleatória
+                const randomX = Math.floor(Math.random() * (window.innerWidth - this.offsetWidth));
+                const randomY = Math.floor(Math.random() * (window.innerHeight - this.offsetHeight));
+                
+                this.style.position = 'absolute';
+                this.style.left = randomX + 'px';
+                this.style.top = randomY + 'px';
+            } else if (clickCount === 2) {
+                // Exibir a mensagem "Eu te amo"
+                document.getElementById("message").textContent = "Eu te amo Gabsxul!";
+                this.style.display = 'none';  // Ocultar o botão
+            }
+        });
+    </script>
+
+</body>
+</html>
